@@ -14,7 +14,7 @@
     summation approaches the Riemann integral, the true area underneath the
     curve.
 
-    \[ \displaystyle\lim_{n \to \infty}\sum_{i=1}^{n} f(x^*_i) \left(\frac{b-a}{n}\right) = \int\limits_a^b f(x)dx \]
+    \[ \displaystyle\lim_{n \to \infty}\sum_{i=1}^{n} f(x^*_i) \Delta x = \int\limits_a^b f(x)dx \]
 
     Riemann sums can be approximated three different ways, all of which depend on
     where the rectangle intercepts the curve. When the rectangle's top right
@@ -66,29 +66,104 @@
     In order to find a Circle sum, a similar process will be followed.
 
     \subsection{Riemann}
-    We begin by being given a function \( f(x) \) and a set of bounds \( a \) and
-    \( b \). The width of the workable area is defined as \( b-a \). Thus, we can
-    divide the workable area into \( n \) partitions, each with a width of \( \Delta x = \frac{b-a}{n} \).
-    The right-bound x-value for any such rectangle inside of these bounds can be
-    found by adding the partition width \( n \) times for the \(n\)th partition.
-    Such a rectangle on the curve has width \( \Delta x \) and height
-    \( f(a+n_i\Delta x) \). Thus, the area of this rectangle is \( f(a+n_i\Delta x)\Delta x \).
-    This rectangle would appear below the function in this manner:
+      We begin by being given a function \( f(x) \) and a set of bounds \( a \) and
+      \( b \). The width of the workable area is defined as \( b-a \). Thus, we can
+      divide the workable area into \( n \) partitions, each with a width of \( \Delta x = \frac{b-a}{n} \).
+      The right-bound x-value for any such rectangle inside of these bounds can be
+      found by adding the partition width \( n \) times for the \(n\)th partition.
+      Such a rectangle on the curve has width \( \Delta x \) and height
+      \( f(a+n_i\Delta x) \). Thus, the area of this rectangle is \( f(a+n_i\Delta x)\Delta x \).
+      This rectangle would appear below the function in the manner shown in Figure 2.
 
-    The sum of the rectangles that exist from \( a \) to \( b \) can be expressed
-    with summation notation:
+      \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.8\textwidth]{riemann_deriv_1}
+        \caption{A Riemann-style rectangle placed below a curve.}
+      \end{figure}
 
-    \[ A_{total} = f(a+(0)\Delta x)\Delta x + f(a+(1)\Delta x)\Delta x + \dots + f(a+n\Delta x)\Delta x \]
+      The sum of the rectangles that exist from \( a \) to \( b \) can be expressed
+      with summation notation:
 
-    \[ = \displaystyle\sum_{i=0}^n f(a+i\Delta x)\Delta x \]
+      \[ A_{total} = f(a+(0)\Delta x)\Delta x + f(a+(1)\Delta x)\Delta x + \dots + f(a+n\Delta x)\Delta x \]
 
-    \( A_{total} \) is represented by the shaded green areas in Figure 3.
+      \[ = \displaystyle\sum_{i=0}^n f(a+i\Delta x)\Delta x \]
 
-    When we take the limit of \( A_{total} \) as the number of partitions, \( n \),
-    approaches infinity, we find that \( A_{total} \) approaches \( A_{real} \),
-    given by integrating the function from \( a \) to \( b \).
+      \( A_{total} \) is represented by the shaded green areas in Figure 3.
 
-    \[ \displaystyle\lim_{n \to \infty}\sum_{i=0}^n f(a+i\Delta x)\Delta x = \int\limits_a^b f(x)dx \]
+      \begin{figure}[h]
+        \centering
+        \includegraphics[width=0.5\textwidth]{riemann_2}
+        \caption{A function with Riemann rectangles placed underneath it.}
+      \end{figure}
 
+      When we take the limit of \( A_{total} \) as the number of partitions, \( n \),
+      approaches infinity, we find that \( A_{total} \) approaches \( A_{real} \),
+      given by integrating the function from \( a \) to \( b \).
+
+      \[ \displaystyle\lim_{n \to \infty}\sum_{i=0}^n f(a+i\Delta x)\Delta x = \int\limits_a^b f(x)dx \]
+
+    \subsection{Circle}
+      There are two concievable methods for using circles to determine the area
+      underneath a function. The first stacks circles with radius \( n \) up to
+      the curve, and sums their areas. This is shown in Figure 4. The second
+      finds the largest possible circle which is tangential to the curve at a given
+      x and sums the areas of the circles that do not overlap and which fit inside
+      the bounds. This is shown in Figure 5.
+
+      \begin{figure}[h]
+        \centering
+        \includegraphics[width=0.8\textwidth]{circle_example_1}
+        \caption{A stacked-circle style approximation.}
+      \end{figure}
+
+      \begin{figure}[h]
+        \centering
+        \includegraphics[width=0.8\textwidth]{circle_example_2}
+        \caption{A filled-circle style approximation.}
+      \end{figure}
+
+      \subsubsection{Filled Circles}
+        Figure 5 somewhat gives away the failings of the Filled Circle method. Because
+        circles cannot overlap, they cannot appropriatley grow to fit the area
+        underneath the curve. This means that the approximation will have huge
+        failings when it comes to estimating the real area underneath the curve.
+        It also, by definition, fails to act like a Riemann sum in that it does not
+        have a parameter which can be examined at infinity.
+
+        The Filled Circle method will not be further examined here. Finding the
+        optimal number of circles that will fit under the curve is a problem of
+        \emph{circle packing}, which examines how to fit the optimal number of
+        circles in an enclosed space.
+
+      \subsubsection{Stacked Circles}
+        This method is the most likely to behave like a Riemann sum because it creates
+        smaller and smaller shapes to fit under the curve. However it might suffer
+        in accuracy due to \emph{circle packing}. \emph{Circle packing} immediatley
+        introduces a problem with computing a Riemann-style circle sum: a circle
+        has approximatley 78\% the area of an optimally-sized square. It is to
+        be discovered if this discrepancy will disappear as the number of circles
+        increases to infinity.
+
+        We can begin with the same set of givens for a Riemann sum: a function, \( f(x) \),
+        and a set of bounds, \( a \) and \( b \). This workable area, with \( n \)
+        partitions, has a partition width of \( \Delta x = \frac{b-a}{n} \). In this
+        case, each circle's diameter must equal \( \Delta x \). Thus the radius of
+        each circle is \( \frac{\Delta x}{2} \).
+
+        It is here that we run into some trouble with restricting the area of the
+        circles. For circles to be bound between \( a \) and \( b \), they must
+        all have the same diameter. If they all have the same diameter, they won't
+        tangentially intercept the curve. However, if we adapt our estimation to
+        create tangential intercepts for the circles, then the circles will spill
+        over the boundaries created by \( a \) and \( b \). This problem is illustrated
+        in Figure 6.
+
+        Luckily, we can follow both paths and analyze which method gives us a more
+        accurate estimate. The method which adheres to the bounds will be called
+        the \emph{Strict Stacked Circle Method} (SSCM), and the method which adheres to
+        the curve will be called the \emph{Loose Stacked Circle Method} (LSCM).
+
+        \paragraph{Strict Stacked Circle Method}
+          This paragraph will extol the virtues of the Strict Stacked Circle Method.
 
 \end{document}

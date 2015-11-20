@@ -213,7 +213,22 @@ OUTPUT test.pdf
 INPUT ./riemann_1.png
 INPUT /usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
+INPUT riemann_deriv_1.png
+INPUT ./riemann_deriv_1.png
+INPUT ./riemann_deriv_1.png
+INPUT riemann_2.png
+INPUT ./riemann_2.png
+INPUT ./riemann_2.png
+INPUT circle_example_1.png
+INPUT ./circle_example_1.png
+INPUT ./circle_example_1.png
+INPUT circle_example_2.png
+INPUT ./circle_example_2.png
+INPUT ./circle_example_2.png
+INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
+INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/cm/cmti10.tfm
 INPUT test.aux
+INPUT /usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
@@ -226,3 +241,4 @@ INPUT /usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb
+INPUT /usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb
