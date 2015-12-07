@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  28 NOV 2015 10:57
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  7 DEC 2015 10:57
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -290,18 +290,18 @@ File: pgflibraryplotmarks.code.tex 2013/07/20 v3.0.0 (rcs-revision 1.13)
 ))) (./test.aux)
 \openout1 = `test.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
  ABD: EveryShipout initializing macros (/usr/local/texlive/2015/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count115
@@ -351,76 +351,82 @@ Package grfext Info: Graphics extension search list:
  (/usr/local/texlive/2015/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-
-Package pgfplots Warning: running in backwards compatibility mode (unsuitable tick labels; missing features). Consider writing \pgfplotsset{compat=1.12} into your preamble.
- on input line 4.
+Package pgfplots notification 'compat/show suggested version=true': document has been generated with the most recent feature set (\pgfplotsset{compat=1.12}).
 
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 8.
+(Font)              <12> on input line 9.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 8.
+(Font)              <8> on input line 9.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 8.
+(Font)              <6> on input line 9.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 11.
+(Font)              <7> on input line 12.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 11.
+(Font)              <5> on input line 12.
 <riemann_1.png, id=4, 455.7025pt x 297.11pt>
 File: riemann_1.png Graphic file (type png)
  <use riemann_1.png>
-Package pdftex.def Info: riemann_1.png used on input line 19.
+Package pdftex.def Info: riemann_1.png used on input line 20.
 (pdftex.def)             Requested size: 172.5pt x 112.46774pt.
  [1
 
 {/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./riemann_1.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 27--27
+Underfull \hbox (badness 10000) in paragraph at lines 28--28
 [][]\OT1/cmr/m/n/8 http://media.collegeboard.com/digitalServices/pdf/ap/ap-calculus-course-
  []
 
 <riemann_deriv_1.png, id=20, 561.59813pt x 335.75438pt>
 File: riemann_deriv_1.png Graphic file (type png)
  <use riemann_deriv_1.png>
-Package pdftex.def Info: riemann_deriv_1.png used on input line 41.
+Package pdftex.def Info: riemann_deriv_1.png used on input line 42.
 (pdftex.def)             Requested size: 276.00105pt x 165.00778pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[2] <riemann_2.png, id=28, 389.455pt x 289.08pt>
+ [2] <riemann_2.png, id=28, 389.455pt x 289.08pt>
 File: riemann_2.png Graphic file (type png)
  <use riemann_2.png>
-Package pdftex.def Info: riemann_2.png used on input line 55.
+Package pdftex.def Info: riemann_2.png used on input line 56.
 (pdftex.def)             Requested size: 172.5pt x 128.03809pt.
  [3 <./riemann_deriv_1.png> <./riemann_2.png>] <circle_example_1.png, id=33, 557.08125pt x 328.97906pt>
 File: circle_example_1.png Graphic file (type png)
  <use circle_example_1.png>
-Package pdftex.def Info: circle_example_1.png used on input line 68.
+Package pdftex.def Info: circle_example_1.png used on input line 69.
 (pdftex.def)             Requested size: 276.00105pt x 162.99321pt.
  <circle_example_2.png, id=34, 553.31718pt x 327.47343pt>
 File: circle_example_2.png Graphic file (type png)
  <use circle_example_2.png>
-Package pdftex.def Info: circle_example_2.png used on input line 74.
+Package pdftex.def Info: circle_example_2.png used on input line 75.
 (pdftex.def)             Requested size: 276.00105pt x 163.34656pt.
- [4 <./circle_example_1.png> <./circle_example_2.png>] <circle_packing.png, id=40, 575.14874pt x 280.04625pt>
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[4 <./circle_example_1.png>] <circle_packing.png, id=41, 575.14874pt x 280.04625pt>
 File: circle_packing.png Graphic file (type png)
  <use circle_packing.png>
-Package pdftex.def Info: circle_packing.png used on input line 86.
+Package pdftex.def Info: circle_packing.png used on input line 87.
 (pdftex.def)             Requested size: 276.00105pt x 134.39075pt.
- [5 <./circle_packing.png>] [6] [7] [8] (./test.aux) ) 
+ [5 <./circle_example_2.png> <./circle_packing.png>] [6]
+Package pgfplots info on input line 147: Using 'lua backend=false' for axis: xmode=log unsupported (yet).
+PGFPlots: reading {riemann_sum.dat}
+PGFPlots: reading {circle_sum.dat}
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[7] [8] [9] [10] (./test.aux) ) 
 Here is how much of TeX's memory you used:
- 20166 strings out of 493089
- 528055 string characters out of 6134842
- 698766 words of memory out of 5000000
- 23310 multiletter control sequences out of 15000+600000
+ 20654 strings out of 493089
+ 542635 string characters out of 6134842
+ 705766 words of memory out of 5000000
+ 23794 multiletter control sequences out of 15000+600000
  8241 words of font info for 29 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 62i,8n,77p,725b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/
-2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on test.pdf (8 pages, 248551 bytes).
+ 62i,19n,103p,725b,2247s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2015/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on test.pdf (10 pages, 258354 bytes).
 PDF statistics:
- 102 PDF objects out of 1000 (max. 8388607)
- 66 compressed objects within 1 object stream
+ 108 PDF objects out of 1000 (max. 8388607)
+ 70 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  43 words of extra memory for PDF output out of 10000 (max. 10000000)
 

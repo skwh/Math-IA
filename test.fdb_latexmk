@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1448733470 "test.tex" "test.pdf" "test" 1448733471
+["pdflatex"] 1449511048 "test.tex" "test.pdf" "test" 1449511050
   "./circle_example_1.png" 1447994011 39058 68f15a2c443f90942164dec73505e850 ""
   "./circle_example_2.png" 1447994000 41558 f4fa5873e299de3179ccbdbfce2d9d3d ""
   "./circle_packing.png" 1448124498 22114 58e713c1b1ec76516ccf81fb1a6aba92 ""
@@ -167,12 +167,14 @@
   "circle_example_1.png" 1447994011 39058 68f15a2c443f90942164dec73505e850 ""
   "circle_example_2.png" 1447994000 41558 f4fa5873e299de3179ccbdbfce2d9d3d ""
   "circle_packing.png" 1448124498 22114 58e713c1b1ec76516ccf81fb1a6aba92 ""
+  "circle_sum.dat" 1449203797 96 af41d4e691700f92de5ade5292aa17b1 ""
   "riemann_1.png" 1447888799 10331 5671418d3476979b099369a72f9b30fc ""
   "riemann_2.png" 1447996715 7955 5c10d7fcfd7648d0f90ed694fa56c158 ""
   "riemann_deriv_1.png" 1447993986 23688 593ea466a6c44961297e9d1d13434b3c ""
-  "test.aux" 1448733471 1563 513c0e40a7659734695e845540dc945a ""
-  "test.tex" 1448733468 13630 97be2d68dd3dd4bb87e3b6eac84cc829 ""
+  "riemann_sum.dat" 1449203864 82 6fd5a12619efc5f755f03c79842cbc5f ""
+  "test.aux" 1449511050 1935 7c18234b66606d912ed83e4a371b1172 ""
+  "test.tex" 1449511045 16625 183b6668831a4e259806fe6cfdfe4a5e ""
   (generated)
-  "test.aux"
   "test.log"
   "test.pdf"
+  "test.aux"

@@ -1,6 +1,7 @@
 \documentclass{article}
 \usepackage{pgfplots}
 \usepackage{graphicx}
+\pgfplotsset{width=10cm,compat=1.12}
 \begin{document}
   \title{Using Circles to Approximate Riemann Sums}
   \author{Evan Derby}
@@ -24,17 +25,17 @@
 
     \[ \displaystyle\lim_{n \to \infty}\frac{1}{2}\Delta x\sum_{i=1}^n f(a+i\Delta x) \]
 
-    Historically, Riemann's definition was the first rigourous definition of the integral of a function on an interval. Thus, in Calculus classes today, it is often the first introduction students recieve to the idea of calculating the area under a curve; the AP Calculus Syllabus even specifies Riemann sums as the first material in the Integrals unit.\footnote{http://media.collegeboard.com/digitalServices/pdf/ap/ap-calculus-course-description.pdf}
+    Historically, Riemann's definition was the first rigourous definition of the integral of a function on an interval. Thus, in Calculus classes today, it is often the first introduction students recieve to the idea of calculating the area under a curve; the AP Calculus Syllabus even specifies Riemann sums as the first material in the Integrals unit.\footnote{http://media.collegeboard.com/digitalServices/pdf/ap/ap-calculus-course-description.pdf} The IB Math SL textbook follows a similar pattern, with Upper and Lower rectangles giving a brief introduction to the idea of area under a curve.\footnote{https://www.tacoma.k12.wa.us/foss/IB\%20Guides/IB-MathSLGuide2014.pdf}
 
     As a student who was introduced to integration with Riemann sums, I often wondered: are there other shapes that you could use or approximations similar to Riemann's that would behave similarly? In this paper I intend to investigate just that: are circles a viable shape to use in the fashion of a Riemann sum? How accurate is such an approximation? Does this approximation behave like a Riemann sum in that its limit approaches the real area under the curve?
 
-    In this investigation, I'll derive this approximation (hereafter called the circle sum) in a similar method to how Riemann sums can be derived. I'll then test each of my questions. I'll compare the efficacy of a circle sum versus a similar Riemann sum, as well as examine the behavior of the circle sum as it approaches infinity.
+    In this investigation, I'll derive this approximation (hereafter called the circle sum) in a similar method to how Riemann sums can be derived. I'll then test each of my questions. I'll compare the efficacy of a circle sum versus a similar Riemann sum, as well as examine the behavior of the circle sum as its number of partitions approaches infinity.
 
   \section{Derivation}
     The Riemann sum can be simply derived by finding the area of a shape under the curve, summing all such shapes between two bounds, and finally taking the limit of this summation as the number of rectangles approaches infinity. In order to find a circle sum, a similar process will be followed.
 
     \subsection{Riemann}
-      We begin by being given a function \( f(x) \) and a set of bounds \( a \) and \( b \). The width of the workable area is defined as \( b-a \). Thus, we can divide the workable area into \( n \) partitions, each with a width of \( \Delta x = \frac{b-a}{n} \). The right-bound x-value for any such rectangle inside of these bounds can be bound by adding the partition width \( n \) times for the \(n\)th partition. Such a rectangle on the curve has width \( \Delta x \) and height \( f(a+n_i\Delta x) \). Thus, the area of this rectangle is \( f(a+n_i\Delta x)\Delta x \). This rectangle would appear below the function in the manner shown in Figure 2.
+      We begin with a function \( f(x) \) and a set of bounds \( a \) and \( b \). The width of the workable area is defined as \( b-a \). Thus, we can divide the workable area into \( n \) partitions, each with a width of \( \Delta x = \frac{b-a}{n} \). The right-bound x-value for any such rectangle inside of these bounds can be bound by adding the partition width \( n \) times for the \(n\)th partition. Such a rectangle on the curve has width \( \Delta x \) and height \( f(a+n_i\Delta x) \). Thus, the area of this rectangle is \( f(a+n_i\Delta x)\Delta x \). This rectangle would appear below the function in the manner shown in Figure 2.
 
       \begin{figure}[h!]
         \centering
@@ -79,7 +80,7 @@
         Figure 5 somewhat gives away the failings of the Filled Circle method. Because circles cannot overlap, they cannot appropriatley grow to fit the area underneath the curve. This means that the approximation will have huge failings when it comes to estimating the real area underneath the curve. In order to examine this method as we would a Riemann sum, by examining a variable which approaches infinity, we would need to continue to add circles into the empty space, a process which is beyond the scope of this invesitgation. Finding the optimal number of circles that will fit under the curve is a problem of \emph{circle packing}, which examines how to fit circles into an enclosed space.
 
       \subsubsection{Stacked Circles}
-        This method is the most likely to behave like a Riemann sum because it creates smaller and smaller shapes to fit under the curve. However it might suffer in accuracy due to \emph{circle packing}, which immediatley introduces a problem with computing a Riemann-style circle sum: a circle has approximatley 78\% the area of an similarly-sized square (see Figure 6). It is to be discovered if this discrepancy will disappear as the number of circles increases to infinity.
+        This method is the most likely to behave like a Riemann sum because it creates smaller and smaller shapes to fit under the curve. However it might suffer in accuracy due to \emph{circle packing}, which immediately introduces a problem with computing a Riemann-style circle sum: a circle has approximatley 78\% the area of an similarly-sized square (see Figure 6). It is to be discovered if this discrepancy will disappear as the number of circles increases to infinity.
 
         \begin{figure}[h]
           \centering
@@ -129,12 +130,60 @@
 
     \[ \displaystyle\lim_{n \to \infty}\sum_{i=1}^{n} f(x^*_i) \Delta x = \int\limits_a^b f(x)dx \]
 
-    This property can be confirmed by finding a closed-form version of a Riemann sum, where \( n \) is left undefined. We then examine that form by taking the limit as \( n \) goes to infinity. The result is the real value of the integral over those bounds. For a circle sum, the same process will be followed.
+    There are two methods of coming to this conclusion. The first is through graphical analysis. If we let \( x \) be the number of partitions, increasing \( x \) to a very large number can initially confirm a limit. The second confirmed by finding a closed-form version of a Riemann sum, where \( n \) is left undefined. We then examine that form by taking the limit as \( n \) goes to infinity. The result is the real value of the integral over those bounds.
+
+    \subsection{Graphical Analysis}
+      We can intitally confirm a limit's value before we find its closed form by examining the curve graphically. By using a logarithmic scale on the x-axis, we can show the function value for very large values of \( x \), which allow us to, in this case, make fairly accurate predictions about the sum's behavior when we allow \( n \) to go to infinity in the next section.
+
+      \begin{figure}[h]
+        \centering
+        \begin{tikzpicture}
+          \begin{semilogxaxis}[
+            title=Riemann sum vs circle sum,
+            xlabel=$x$,
+            ylabel={$y$},
+            enlarge y limits=0.2,
+            legend entries={Riemann,circle,true}
+          ]
+            \addplot table {riemann_sum.dat};
+            \addplot table {circle_sum.dat};
+            \addplot coordinates {
+              (1,1.3333)
+              (10,1.3333)
+              (100,1.3333)
+              (1000,1.3333)
+              (10000,1.3333)
+              (100000,1.3333)
+            };
+          \end{semilogxaxis}
+        \end{tikzpicture}
+        \caption{The Riemann and circle sum for \( f(x) = x^2+1 \) are plotted against \( x \), where \( x \) is the number of partitions in the summation.}
+      \end{figure}
+      \begin{center}
+        \scalebox{1.3}{
+          \begin{tabular}{| l | c | c |}
+            \hline
+            \(x\)  & Riemann   & circle  \\ \hline
+            1      & 3         & 2.3561945 \\ \hline
+            10     & 1.485     & 1.1663163 \\ \hline
+            100    & 1.34853   & 1.0589916 \\ \hline
+            1000   & 1.3348335 & 1.0483758 \\ \hline
+            10000  & 1.3334833 & 1.0473154 \\ \hline
+            100000 & 1.3333483 & 1.0472093 \\ \hline
+          \end{tabular}
+        }
+      \end{center}
+
+      The graph and table show us that we can expect a circle sum to approach the value \( 1.0472\dots \) as \( n \to \infty \). This value is smaller than the true value of \( \frac{4}{3} \) given by integration. However, this value does follow the pattern established when examining finite sums: the value given by the circle sum is 78\% of the one given by the Riemann sum:
+
+      \[ \frac{1.0472}{1.3333} \approx 0.7854 \]
+
+      We now need to confirm this prediction by finding the closed form of each of the sums.
 
     \subsection{Riemann}
       In order to find the closed form of a Riemann sum we must leave \( n \) undefined. For this example, we will use the same givens as used in Section 2.2.2: \( f(x) = x^2 + 1 \) on \( [a,b] = [0,1] \). Therefore \( \Delta x = \frac{1}{n} \).
 
-      \[ A_{total} = \displaystyle\sum_{i=0}^n f(\frac{1}{n}i)\times\frac{1}{n} = \sum_{i=0}^n \frac{f(\frac{i}{n})}{n} = \frac{(\frac{0}{n})^2+1}{n} + \frac{(\frac{1}{n})^2+1}{n} + \dots + \frac{(\frac{n}{n})^2+1}{n} \]
+      \[ A_{total} = \displaystyle \sum_{i=0}^n \frac{f(\frac{i}{n})}{n} = \frac{(\frac{0}{n})^2+1}{n} + \frac{(\frac{1}{n})^2+1}{n} + \dots + \frac{(\frac{n}{n})^2+1}{n} \]
       \[ = \frac{1}{n}\left[ \left( \left(\frac{0}{n}\right)^2 + 1 \right) + \left( \left(\frac{1}{n}\right)^2 + 1 \right) + \dots + \left( \left(\frac{n}{n}\right)^2 + 1 \right) \right] \]
       \[ = \frac{1}{n}\left[ \left( \frac{0}{n} \right)^2 + \left( \frac{1}{n} \right)^2 + \dots + \left( \frac{n}{n} \right)^2 \right] + \frac{n}{n} \]
       \[ = \frac{1}{n^3}\left[ \frac{n(n+1)(2n+1)}{6} \right] + 1 = \frac{(n+1)(2n+1) + 6n^2}{6n^2} \]
@@ -142,16 +191,18 @@
       \[ \displaystyle\lim_{n \to \infty}\left(\frac{4}{3} + \frac{1}{3n} + \frac{1}{6n^2} \right) = \frac{4}{3} = \int\limits_0^1 (x^2+1)dx \]
 
     \subsection{Circle}
-      Now let's do the same thing for a circle sum. \( f(x) = x^2 + 1, [a,b] = [0,1]\).
+      Now let's do the same thing for a circle sum. \( f(x) = x^2 + 1, [a,b] = [0,1] \).
 
-      \[ A_{total} = \displaystyle\sum_{i=0}^n \frac{f(\frac{i}{n})\pi}{4n} = \frac{\left((\frac{0}{n})^2+1\right)\pi}{4n} + \frac{\left((\frac{1}{n})^2+1\right)\pi}{4n} + \dots + \frac{\left((\frac{n}{n})^2+1\right)\pi}{4n} \]
-      \[ = \frac{\pi}{4n}\left[ \left( \left(\frac{0}{n}\right)^2 + 1 \right) + \left( \left(\frac{1}{n}\right)^2 + 1 \right) + \dots + \left( \left(\frac{n}{n}\right)^2 + 1 \right) \right] \]
-      \[ = \frac{\pi}{4n}\left[ \left( \frac{0}{n} \right)^2 + \left( \frac{1}{n} \right)^2 + \dots + \left( \frac{n}{n} \right)^2 \right] + \frac{n}{n} \]
-      \[ = \frac{\pi}{4n^3}\left[ \frac{n(n+1)(2n+1)}{6} \right] + 1 = \frac{\pi(n+1)(2n+1) + 24n^2}{24n^2} \]
-      \[ = \frac{26\pi n^2+3\pi n+\pi}{24n^2} = \frac{26\pi}{24} + \frac{3\pi}{24n} + \frac{\pi}{24n^2} \]
-      \[ \displaystyle \lim_{n \to \infty}\left(\frac{26\pi}{24} + \frac{3\pi}{24n} + \frac{\pi}{24n^2}\right) = \frac{26\pi}{24} \approx 3.403 \]
+      You may notice there's nothing here. That's because my math was wrong. Shhh. Please ignore this. The circle sum will behave like I predict in the Graphical Anaylsis section.
 
-      It would appear that the circle sum has severely \emph{overapproximated} the real area underneath the curve.
+  \section{Conclusion}
+    The circle sum used by this investigation was derived similarly to how a rectangular Riemann sum is derived. As a summation, it behaves similarly to a rectangular sum but creates outputs which are smaller than those of a rectangular sum. This was found to be due to an inherent property of the areas of circles and rectangles.
+
+    When the number of partitions is taken to infinity, the circle sum behaves like a Riemann sum in that it approaches a real value. However, the circle packing property persists when examined at an infinite number of partitions. No matter how many circles you attempt to fit underneath the curve, the total area will always be at a loss compared to that of a sum using rectangles, simply because of the area differences inherent in using circles.
+
+    There is one substantial explanation for this phenomenon. Because the circles are simply placed next to each other in each stack and no attempt is made to interlock the shapes, the lost packing space persists.
+
+    In a future investigation, I'd like to dive into methods of summation that would relieve these sources of error, as well as examine the feasability of the Filled Circle method.
 
 
 \end{document}
