@@ -9,11 +9,11 @@
   \maketitle
 
   \section{Introduction}
-    Riemann sums are a method of approximating the area underneath a curve by adding up the areas of shapes, usually rectangles, whose height is restricted by a point on the function. As the width \( \Delta x \) of these shapes approaches zero, the summation approaches the Riemann integral, the true area underneath the curve.
+    Riemann sums are a method of approximating the area underneath a curve by adding up the areas of shapes, often rectangles, whose height is restricted to a point on the function. As the width \( \Delta x \) of these shapes approaches zero, the summation approaches the true area underneath the curve.
 
     \[ \displaystyle\lim_{n \to \infty}\sum_{i=1}^{n} f(x^*_i) \Delta x = \int\limits_a^b f(x)dx \]
 
-    Normally, Riemann sums can be approximated three different ways, all of which depend on where the rectangle intercepts the curve. When the rectangle's top right vertex is bounded by the curve, this is known as a RRAM, or Right-hand Rectangular Approximation Method. The same goes for a left-bounded rectangle (LRAM), and a rectangle whose midpoint intercepts the curve (MRAM). The formula changes slightly for each method, denoted by \( x^*_i \). For LRAM, \( x_i^* = x_{i-1} \); RRAM, \( x_i^* = x_i \); and MRAM, \( x_i^* = \frac{1}{2}(x_i + x_{i-1}) \).
+    Normally, Riemann sums can be approximated three different ways, all of which depend on where the rectangle is being defined to intercept the curve. When the rectangle's top right vertex is bounded by the curve, this is known as the Right-hand Rectangular Approximation Method (RRAM). The same goes for a left-bounded rectangle (LRAM), and a rectangle whose midpoint intercepts the curve (MRAM). The formula changes slightly for each method, denoted by \( x^*_i \). For LRAM, \( x_i^* = x_{i-1} \); RRAM, \( x_i^* = x_i \); and MRAM, \( x_i^* = \frac{1}{2}(x_i + x_{i-1}) \).
 
     \begin{figure}[h]
       \centering
@@ -21,7 +21,7 @@
       \caption{A function with Right-hand Riemann sum rectangles drawn underneath.}
     \end{figure}
 
-    Riemann sums are not limited to rectangles, however. Another, more accurate method of approximation makes use of trapezoids, whose area formula is comparably simple to that of a rectangle's. Trapezoidal approximation is similar to the result of averaging a left and right approximation. This method makes use of the trapezoid area formula \( A = \frac{1}{2}h(b_1+b_2) \). A Riemann sum constructed with trapezoids takes this form:
+    Riemann sums are not limited to rectangles, however. Another, more accurate method of approximation makes use of trapezoids, whose area formula is comparably simple to that of a rectangle's. Trapezoidal approximation is equal to the result of averaging a left and right approximation. This method makes use of the trapezoid area formula \( A = \frac{1}{2}h(b_1+b_2) \). A Riemann sum constructed with trapezoids takes this form:
 
     \[ \displaystyle\lim_{n \to \infty}\frac{1}{2}\Delta x\sum_{i=1}^n f(a+i\Delta x) \]
 
@@ -32,12 +32,12 @@
     In this investigation, I'll derive this approximation (hereafter called the circle sum) in a similar method to how Riemann sums can be derived. I'll then test each of my questions. I'll compare the efficacy of a circle sum versus a similar Riemann sum, as well as examine the behavior of the circle sum as its number of partitions approaches infinity.
 
   \section{Derivation}
-    The Riemann sum can be simply derived by finding the area of a shape under the curve, summing all such shapes between two bounds, and finally taking the limit of this summation as the number of rectangles approaches infinity. In order to find a circle sum, a similar process will be followed.
+    The Riemann sum can be derived by finding the area of a shape under the curve, summing all such shapes between two bounds, and finally taking the limit of this summation as the number of rectangles approaches infinity. In order to find a circle sum, a similar process will be followed.
 
     \subsection{Riemann}
       We begin with a function \( f(x) \) and a set of bounds \( a \) and \( b \). The width of the workable area is defined as \( b-a \). Thus, we can divide the workable area into \( n \) partitions, each with a width of \( \Delta x = \frac{b-a}{n} \). The right-bound x-value for any such rectangle inside of these bounds can be bound by adding the partition width \( n \) times for the \(n\)th partition. Such a rectangle on the curve has width \( \Delta x \) and height \( f(a+n_i\Delta x) \). Thus, the area of this rectangle is \( f(a+n_i\Delta x)\Delta x \). This rectangle would appear below the function in the manner shown in Figure 2.
 
-      \begin{figure}[h!]
+      \begin{figure}[h]
         \centering
         \includegraphics[width=0.8\textwidth]{riemann_deriv_1}
         \caption{A Riemann-style rectangle placed below a curve.}
@@ -193,14 +193,24 @@
     \subsection{Circle}
       Now let's do the same thing for a circle sum. \( f(x) = x^2 + 1, [a,b] = [0,1] \).
 
-      You may notice there's nothing here. That's because my math was wrong. Shhh. Please ignore this. The circle sum will behave like I predict in the Graphical Anaylsis section.
+      \[ A_{total} = \displaystyle \sum_{i=0}^n \frac{f\left(\frac{i}{n}\right)\pi}{4n} = \frac{(\left(\frac{0}{n}\right)^2+1)\pi}{4n} + \dots + \frac{(\left(\frac{n}{n}\right)^2+1)\pi}{4n} \]
+      \[ = \frac{\pi}{4n}\left[\left(\left(\frac{0}{n}\right)^2 + 1 \right) + \left(\left(\frac{1}{n}\right)^2 + 1 \right) + \dots + \left(\left(\frac{n}{n}\right)^2 + 1 \right)\right] \]
+      \[ = \frac{\pi}{4n}\left[\left(\left(\frac{0}{n}\right)^2 + \left(\frac{1}{n}\right)^2 + \dots + \left(\frac{n}{n}\right)^2\right) + n \right] \]
+      \[ = \frac{\pi}{4n}\left[\left(\frac{0}{n}\right)^2 + \left(\frac{1}{n}\right)^2 + \dots + \left(\frac{n}{n}\right)^2 \right] + \frac{\pi}{4} \]
+      \[ = \frac{\pi}{4n^3}\left[ \frac{n(n+1)(2n+1)}{6} \right] + \frac{\pi}{4} \]
+      \[ = \frac{8\pi n^2 + 3\pi n + \pi}{24n^2} = \frac{8\pi}{24} + \frac{3\pi}{24n} + \frac{\pi}{24n^2} \]
+      \[ = \displaystyle\lim_{n \to \infty}\left(\frac{8\pi}{24} + \frac{3\pi}{24n} + \frac{\pi}{24n^2}\right) = \frac{1}{3}\pi \approx 1.0472 \]
+
+      The sum does, in fact, approach a real value which is 78\% of a Riemann sum's value.
 
   \section{Conclusion}
-    The circle sum used by this investigation was derived similarly to how a rectangular Riemann sum is derived. As a summation, it behaves similarly to a rectangular sum but creates outputs which are smaller than those of a rectangular sum. This was found to be due to an inherent property of the areas of circles and rectangles.
+    The circle sum used by this investigation was derived similarly to how a rectangular Riemann sum is derived. As a summation, it behaves similarly to a rectangular sum but creates outputs which are smaller than those of a rectangular sum. This was found to be due to an inherent property of the areas of circles and rectangles- circles have 78\% of the area of a comparable rectangle.
 
     When the number of partitions is taken to infinity, the circle sum behaves like a Riemann sum in that it approaches a real value. However, the circle packing property persists when examined at an infinite number of partitions. No matter how many circles you attempt to fit underneath the curve, the total area will always be at a loss compared to that of a sum using rectangles, simply because of the area differences inherent in using circles.
 
     There is one substantial explanation for this phenomenon. Because the circles are simply placed next to each other in each stack and no attempt is made to interlock the shapes, the lost packing space persists.
+
+    The point of this investigation was to examine the method itself, not to find a new, accurate way to estimate the area underneath a circle. Supplemental time will not be spent attempting to correct the error from circle packing.
 
     In a future investigation, I'd like to dive into methods of summation that would relieve these sources of error, as well as examine the feasability of the Filled Circle method.
 
