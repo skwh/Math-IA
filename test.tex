@@ -1,6 +1,7 @@
-\documentclass{article}
+\documentclass[12pt]{article}
 \usepackage{pgfplots}
 \usepackage{graphicx}
+\usepackage{float}
 \pgfplotsset{width=10cm,compat=1.12}
 \begin{document}
   \title{Using Circles to Approximate Riemann Sums}
@@ -25,7 +26,7 @@
 
     \[ \displaystyle\lim_{n \to \infty}\frac{1}{2}\Delta x\sum_{i=1}^n f(a+i\Delta x) \]
 
-    Historically, Riemann's definition was the first rigourous definition of the integral of a function on an interval. Thus, in Calculus classes today, it is often the first introduction students recieve to the idea of calculating the area under a curve; the AP Calculus Syllabus even specifies Riemann sums as the first material in the Integrals unit.\footnote{http://media.collegeboard.com/digitalServices/pdf/ap/ap-calculus-course-description.pdf} The IB Math SL textbook follows a similar pattern, with Upper and Lower rectangles giving a brief introduction to the idea of area under a curve.\footnote{https://www.tacoma.k12.wa.us/foss/IB\%20Guides/IB-MathSLGuide2014.pdf}
+    Historically, Riemann's definition was the first rigourous definition of the integral of a function on an interval.\cite{thomas96} Thus, in Calculus classes today, it is often the first introduction students recieve to the idea of calculating the area under a curve; the AP Calculus Syllabus even specifies Riemann sums as the first material in the Integrals unit.\footnote{http://media.collegeboard.com/digitalServices/pdf/ap/ap-calculus-course-description.pdf} The IB Math SL textbook follows a similar pattern, with Upper and Lower rectangles giving a brief introduction to the idea of area under a curve.\footnote{https://www.tacoma.k12.wa.us/foss/IB\%20Guides/IB-MathSLGuide2014.pdf}
 
     As a student who was introduced to integration with Riemann sums, I often wondered: are there other shapes that you could use or approximations similar to Riemann's that would behave similarly? In this paper I intend to investigate just that: are circles a viable shape to use in the fashion of a Riemann sum? How accurate is such an approximation? Does this approximation behave like a Riemann sum in that its limit approaches the real area under the curve?
 
@@ -62,30 +63,32 @@
       \[ \displaystyle\lim_{n \to \infty}\sum_{i=0}^n f(a+i\Delta x)\Delta x = \int\limits_a^b f(x)dx \]
 
     \subsection{Circle}
-      There are two concievable methods for using circles to determine the area underneath a function. The first stacks circles with diameter \( \Delta x \) up to the curve, and sums their areas. This is shown in Figure 4. The second finds the largest possible circle which is tangential to the curve at a given \( x \) and sums the areas of the circles that do not overlap and which fit inside the bounds. This is shown in Figure 5.
-
-      \begin{figure}[h]
-        \centering
-        \includegraphics[width=0.8\textwidth]{circle_example_1}
-        \caption{A stacked-circle style approximation.}
-      \end{figure}
-
-      \begin{figure}[h]
-        \centering
-        \includegraphics[width=0.8\textwidth]{circle_example_2}
-        \caption{A filled-circle style approximation.}
-      \end{figure}
+      There are two concievable methods for using circles to determine the area underneath a function. Both will be examined here.
 
       \subsubsection{Filled Circles}
-        Figure 5 somewhat gives away the failings of the Filled Circle method. Because circles cannot overlap, they cannot appropriatley grow to fit the area underneath the curve. This means that the approximation will have huge failings when it comes to estimating the real area underneath the curve. In order to examine this method as we would a Riemann sum, by examining a variable which approaches infinity, we would need to continue to add circles into the empty space, a process which is beyond the scope of this invesitgation. Finding the optimal number of circles that will fit under the curve is a problem of \emph{circle packing}, which examines how to fit circles into an enclosed space.
-
-      \subsubsection{Stacked Circles}
-        This method is the most likely to behave like a Riemann sum because it creates smaller and smaller shapes to fit under the curve. However it might suffer in accuracy due to \emph{circle packing}, which immediately introduces a problem with computing a Riemann-style circle sum: a circle has approximatley 78\% the area of an similarly-sized square (see Figure 6). It is to be discovered if this discrepancy will disappear as the number of circles increases to infinity.
+        The Filled Circle method finds the largest possible circle which is tangential to the curve at a given \( x \) and sums the areas of the circles that do not overlap and which fit inside the bounds.
 
         \begin{figure}[h]
           \centering
-          \includegraphics[width=0.8\textwidth]{circle_packing}
-          \caption{A circle is circumscribed within a square. The circle has 78\% of the area of the square.}
+          \includegraphics[width=0.6\textwidth]{circle_example_2}
+          \caption{A filled-circle style approximation.}
+        \end{figure}
+
+        However, the Filled Circle method has some failings. Because circles cannot overlap, they cannot appropriatley grow to fit the area underneath the curve. This means that the approximation will have huge failings when it comes to estimating the real area underneath the curve. In order to examine this method as we would a Riemann sum, by examining a variable which approaches infinity, we would need to continue to add circles into the empty space, a process which is most likely too drawn-out to fit into this 12-page report. Finding the optimal number of circles that will fit under the curve is a problem of \emph{circle packing}, which examines how to fit circles into an enclosed space. \cite{aldar03}
+
+      \subsubsection{Stacked Circles}
+        This method stacks circles with a diameter equal to the partition width \( \Delta x \) up to the curve, and sums their areas, and is the most likely to behave like a Riemann sum because it creates smaller and smaller shapes to fit under the curve.
+
+        \begin{figure}[!h]
+          \centering
+          \includegraphics[width=0.6\textwidth]{circle_example_1}
+        \end{figure}
+
+        However it might suffer in accuracy, since circle packing immediately introduces a problem with computing a Riemann-style circle sum: a circle has approximatley 78\% the area of an similarly-sized square. It is to be discovered if this discrepancy will disappear as the number of circles increases to infinity.
+
+        \begin{figure}[h]
+          \centering
+          \includegraphics[width=0.7\textwidth]{circle_packing}
         \end{figure}
 
         We can begin with the same set of givens for a Riemann sum: a function, \( f(x) \), and a set of bounds, \( a \) and \( b \). This workable area, with \( n \) partitions, has a partition width of \( \Delta x = \frac{b-a}{n} \). Each circle will have diameter \( \Delta x \). Therefore each will have radius \( r = \frac{\Delta x}{2} \) and area \( \pi \left(\frac{\Delta x}{2}\right)^2 \). We can find the number of circles required for a given \( x \) by dividing the function value by the diameter of a circle. Therefore, for a given \( x \) in partition \( n \), the area of the circles beneath it is:
@@ -107,15 +110,27 @@
 
     \[ A_{total} = \displaystyle \sum_{i=0}^{10} \frac{f(\frac{i}{10})\pi}{40} = \frac{\pi}{40} + \frac{1.01\pi}{40} + \dots + \frac{2\pi}{40} = \frac{297}{800}\pi \approx 1.166 \]
 
+    \begin{figure}[h]
+      \centering
+      \includegraphics[width=0.6\textwidth]{circle_deriv_1}
+      \caption{A graphical representation of a circle sum for \( f(x) = x^2 + 1 \).}
+    \end{figure}
+
     Comparatively, a rectangular right-hand Riemann sum for these givens produces the following output:
 
     \[ A_{total} = \displaystyle \sum_{i=0}^{10} \frac{f(\frac{i}{10})}{10} = \frac{1}{10} + \frac{1.01}{10} + \dots + \frac{2}{10} = 1.485 \]
+
+    \begin{figure}[h]
+      \centering
+      \includegraphics[width=0.6\textwidth]{riemann_deriv_2}
+      \caption{A graphical representation of a Riemann sum for \( f(x) = x^2 + 1 \).}
+    \end{figure}
 
     Interestingly, the effects of circle packing are already visible. The approximate area acquired through the circle sum is 78\% of the area acquired through the rectangular sum.
 
     \[ \frac{1.166}{1.485} \approx 0.7851 \]
 
-    One characteristic of right-hand Riemann sums is that they tend to underestimate while handling concave curves, and overestimate while handling convex curves. This error is visible in Figure 3: when the curve is convex (\([-1,0],[2,3] \)), the rectangles are slightly too large; when the curve is concave, they are slighly too small. It is possible that our circle sum would exhibit the same tendency. Let's test the circle sum again, this time modifying our \( f(x) \) to be concave.
+    One characteristic of right-hand Riemann sums is that they tend to underestimate while handling concave curves, and overestimate while handling convex curves. It is possible that our circle sum would exhibit the same tendency. Let's test the circle sum again, this time modifying our \( f(x) \) to be concave.
 
     \[ f(x) = -x^2 + 1 \]
 
@@ -213,6 +228,16 @@
     The point of this investigation was to examine the method itself, not to find a new, accurate way to estimate the area underneath a circle. Supplemental time will not be spent attempting to correct the error from circle packing.
 
     In a future investigation, I'd like to dive into methods of summation that would relieve these sources of error, as well as examine the feasability of the Filled Circle method.
+
+  \begin{thebibliography}{9}
+
+    \bibitem{thomas96}
+      Thomas, George B. Jr, and Ross L. Finney: \emph{Calculus and Analytical Geometry (9th ed.)}. New York: Addison Wesley, 1996.
+
+    \bibitem{aldar03}
+      Heppes, Aldar: "Some Densest Two-Size Disc Packings in the Plane", \emph{Discrete and Computational Geometry}, 30. 2003.
+
+  \end{thebibliography}
 
 
 \end{document}
